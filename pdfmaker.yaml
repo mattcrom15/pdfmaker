@@ -1,0 +1,33 @@
+#Anchorpoint Markup Language
+#Predefined Variables: e.g. ${path}
+#Environment Variables: e.g. ${MY_VARIABLE}
+#Full documentation: https://docs.anchorpoint.app/Actions/Reference
+
+version: "1.0"
+
+action:
+  #Must Have Properties
+  name: "Make PDF"
+
+  #Optional Properties
+  version: 1
+  id: "ap::pdfmaker"
+  category: "examples/templates"
+  type: python
+  author: "Matt Cromwell"
+
+  script: "${yamlDir}/pdfmaker.py"
+
+
+
+  #Where to register this action
+  register:
+    folder:
+      filter: "*/renders"
+
+  #Handle toast messages
+  toast:
+    success:
+      enable: false
+    error:
+      enable: false
